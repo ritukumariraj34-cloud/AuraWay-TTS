@@ -1,2 +1,2 @@
 flet==0.85.1
-pyttsx3
+pyjnius
