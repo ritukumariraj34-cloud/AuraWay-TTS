@@ -3,7 +3,7 @@ name = "auraway-tts"
 version = "1.0.0"
 description = "Text To Speech mobile application built with Flet"
 dependencies = [
-    "flet>=1.0.0",
+    "flet==0.85.1",
     "plyer"
 ]
 
