@@ -25,11 +25,11 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install flet>=1.0.0 plyer
+          pip install -r requirement.txt
 
       - name: Build APK
         run: |
-          # Flet 1.0 builds everything flawlessly via pyproject.toml configuration
+          # 0.85.1 natively reads everything from pyproject.toml
           flet build apk --split-per-abi
 
       - name: Upload APK
