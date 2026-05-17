@@ -1,5 +1,5 @@
 import flet as ft
-import urllib.parse
+import pyttsx3
 
 def main(page: ft.Page):
     page.title = "AuraWay TTS"
@@ -16,21 +16,16 @@ def main(page: ft.Page):
     
     inp = ft.TextField(label="Enter the text here", multiline=True)
     
-    # 1. Create Flet's Native Audio player control
-    audio_player = ft.Audio(autoplay=False)
-    page.overlay.append(audio_player) # Overlay handles background elements
-
     def baak(e):
         if inp.value.strip():
-            # Encode text to be URL safe
-            encoded_text = urllib.parse.quote(inp.value.strip())
-            # Use Google's free TTS stream URL
-            tts_url = f"https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q={encoded_text}"
+            # Initialize the offline engine instance
+            engine = pyttsx3.init()
             
-            # Point the player to the generated audio stream and play it
-            audio_player.src = tts_url
-            audio_player.update()
-            audio_player.play()
+            # Queue the text to speak
+            engine.say(inp.value.strip())
+            
+            # Run the engine to speak immediately through the phone speakers
+            engine.runAndWait()
 
     bt = ft.FilledButton("Speak", width=200, on_click=baak, height=50)
     
