@@ -1,0 +1,19 @@
+[project]
+name = "auraway-tts"
+version = "1.0.0"
+description = "Text To Speech mobile application built with Flet"
+dependencies = [
+    "flet>=1.0.0",
+    "plyer"
+]
+
+[tool.flet]
+org = "com.auraway"
+product = "AuraWay TTS"
+
+[tool.flet.app]
+path = "."          
+module = "main"     
+
+[tool.flet.splash]
+color = "#1A1C1E"
